@@ -18,6 +18,11 @@ The script continuously monitors the log file and provides insights into common 
 - **Automated Timeout:** If there is no activity for 30 seconds, the script will automatically stop. This prevents misuse of computing power.
 - **Manual Interruption:** Pressing `Ctrl+C` will raise a `KeyboardInterrupt` and stop the script. This is useful for manually stopping the script during long-running operations.
 - **Using tail module:** In the provided code, we did not use the tail module of Python. The tail module is not a built-in Python module; it's a common Unix command-line tool used to display the last part of a file. In the script, we manually implemented a similar functionality by opening the log file and continuously reading new lines from the end of the file (`file.seek(0, os.SEEK_END)`) as new entries are appended. This way, we mimic the behavior of tail in a Python script without actually using the tail module. However, since there was a requirement mentioned in the assessment to "Use tail or similar commands to track and display new log entries in real time," I decided to implement tail in another code file optimized for Linux systems. This file is named "log-monitor-linux.py." Since I personally use Windows, I can use "log-monitor-linux.py" when using my VPS server where I host client websites.
+Results trying it in  windows system(Click link to view the screenshot):https://snipboard.io/hbZq4J.jpg
+https://snipboard.io/bkAcOe.jpg
+
+Results trying it in Linux system(Click link to view the screenshot):https://snipboard.io/pZPvJc.jpg 
+https://snipboard.io/0x3KGa.jpg
 
 ## Log Monitoring Features
 As at my first job, I had to assist customer's with their wordpress website errors, I have decided to optimize the script for monitoring wordpress error logs file just to see if I could make customer's lives easy by giving them automated reports fetched from their wordpress error log files.
