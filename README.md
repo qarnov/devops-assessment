@@ -18,6 +18,7 @@ The script continuously monitors the log file and provides insights into common 
 - **Automated Timeout:** If there is no activity for 30 seconds, the script will automatically stop. This prevents misuse of computing power.
 - **Manual Interruption:** Pressing `Ctrl+C` will raise a `KeyboardInterrupt` and stop the script. This is useful for manually stopping the script during long-running operations.
 - **Using tail module:** In the provided code, we did not use the tail module of Python. The tail module is not a built-in Python module; it's a common Unix command-line tool used to display the last part of a file. In the script, we manually implemented a similar functionality by opening the log file and continuously reading new lines from the end of the file (`file.seek(0, os.SEEK_END)`) as new entries are appended. This way, we mimic the behavior of tail in a Python script without actually using the tail module. However, since there was a requirement mentioned in the assessment to "Use tail or similar commands to track and display new log entries in real time," I decided to implement tail in another code file optimized for Linux systems. This file is named "log-monitor-linux.py." Since I personally use Windows, I can use "log-monitor-linux.py" when using my VPS server where I host client websites.
+
 Results trying it in  windows system(Click link to view the screenshot):https://snipboard.io/hbZq4J.jpg
 https://snipboard.io/bkAcOe.jpg
 
