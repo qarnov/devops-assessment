@@ -31,7 +31,7 @@ I have included 4 of the most common wordpress issues me and my team used to get
 
 So when the script summarises the issue, it wil prompt the user to do the following.The script also counts the occurrences of each error type, allowing users to identify patterns in their website's issues.
 
-## Logging Module
+## Log Analyzing features
 The `logging` module in Python was used for the following reasons:
 - **Error Logging:** Provides structured logging of error messages and possible solutions.
 - **Level-Based Logging:** The logging module provides different levels of logging (DEBUG, INFO, WARNING, ERROR, CRITICAL), which allows for different types of messages to be logged. In this script, we are using different log levels for different types of messages:
