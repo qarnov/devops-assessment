@@ -62,8 +62,12 @@ ERROR level for reporting errors such as the log file not being found.
 - **Tail-like Functionality (Linux):** A separate script named "log-monitor-linux.py" has been optimized for Linux systems. This script uses the tail command similar to the Unix command-line tool to display the last part of a file.
 
 
-## Future possible features
--Implement an email notification system to alert the user/administrator when specific errors occur or when certain thresholds are reached. Since we already included logging module, this implementation is alerady half done.
--Machine Learning for Anomaly Detection: Utilize machine learning algorithms to detect anomalies in log data. This could help identify unusual patterns or outliers that may indicate potential issues.
--Customizable Reporting: Allow users to generate customized reports based on selected time ranges, error types, or other criteria. Reports could be exported in various formats such as PDF or CSV.
+# Future Possible Features
+
+- **Implement an Email Notification System:** To alert the user/administrator when specific errors occur or when certain thresholds are reached. Since we already included the logging module, this implementation is already half done.
+  
+- **Machine Learning for Anomaly Detection:** Utilize machine learning algorithms to detect anomalies in log data. This could help identify unusual patterns or outliers that may indicate potential issues.
+  
+- **Customizable Reporting:** Allow users to generate customized reports based on selected time ranges, error types, or other criteria. Reports could be exported in various formats such as PDF or CSV.
+
 
