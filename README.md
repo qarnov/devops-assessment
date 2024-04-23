@@ -14,19 +14,19 @@ To use this project, follow these steps:
 3. Make sure the log file is in the same directory as the script.
 4. Run the script using the command: `python3 log-monitor.py`
 
-The script continuously monitors the log file and provides insights into common WordPress errors. It also includes a mechanism to stop the monitoring loop:
-- **Automated Timeout:** If there is no activity for 30 seconds, the script will automatically stop. This prevents misuse of computing power.
+The script continuously monitors the log file and provides insights into errors. It also includes a mechanism to stop the monitoring loop:
+- **Automated Timeout:** If there is no activity for 30 minutes, the script will automatically stop. This prevents misuse of computing power.
 - **Manual Interruption:** Pressing `Ctrl+C` will raise a `KeyboardInterrupt` and stop the script. This is useful for manually stopping the script during long-running operations.
 - **Using tail module:** In the provided code, we did not use the tail module of Python. The tail module is not a built-in Python module; it's a common Unix command-line tool used to display the last part of a file. In the script, we manually implemented a similar functionality by opening the log file and continuously reading new lines from the end of the file (`file.seek(0, os.SEEK_END)`) as new entries are appended. This way, we mimic the behavior of tail in a Python script without actually using the tail module. However, since there was a requirement mentioned in the assessment to "Use tail or similar commands to track and display new log entries in real time," I decided to implement tail in another code file optimized for Linux systems. This file is named "log-monitor-linux.py." Since I personally use Windows, I can use "log-monitor-linux.py" when using my VPS server where I host client websites.
 
 Results trying it in  windows system(Click link to view the screenshot):https://snipboard.io/hbZq4J.jpg
-https://snipboard.io/bkAcOe.jpg
+https://snipboard.io/BReIxW.jpg
 
 Results trying it in Linux system(Click link to view the screenshot):https://snipboard.io/pZPvJc.jpg 
 https://snipboard.io/0x3KGa.jpg
 
 ## Log Monitoring Features
-As at my first job, I had to assist customer's with their wordpress website errors, I have decided to optimize the script for monitoring wordpress error logs file just to see if I could make customer's lives easy by giving them automated reports fetched from their wordpress error log files.
+As at my first job, I had to assist user's with their wordpress website errors, I have decided to optimize the script for monitoring wordpress error logs file just to see if I could make user's lives easy by giving them automated reports fetched from their wordpress error log files.
 I have included 4 of the most common wordpress issues me and my team used to get that is are sorted by keywords:
 1. **Fatal Error:** Check your WordPress plugins. Try disabling them one by one to identify the problematic plugin.
 2. **wp-settings:** Try upgrading/downgrading your PHP version.
@@ -35,7 +35,7 @@ I have included 4 of the most common wordpress issues me and my team used to get
 5. **wp-content/themes:** Try changing the theme to the default one and check.
 
 
-So when the script summarises the issue, it wil prompt the user to do the following.The script also counts the occurrences of each error type, allowing users to identify patterns in their website's issues.
+So when the script summarises the issue, it will prompt the user to do the following.The script also counts the occurrences of each error type, allowing users to identify patterns in their website's issues.
 
 ## Log Analyzing features
 The `logging` module in Python was used for the following reasons:
@@ -50,7 +50,7 @@ ERROR level for reporting errors such as the log file not being found.
 
 # Additonal Features
 
-- **Automated Timeout:** The script includes a timeout mechanism that automatically stops the monitoring if there is no activity for 30 seconds. This prevents unnecessary resource consumption.
+- **Automated Timeout:** The script includes a timeout mechanism that automatically stops the monitoring if there is no activity for 30 minutes. This prevents unnecessary resource consumption.
 - **Manual Interruption:** Users can manually stop the script by pressing Ctrl+C, which raises a KeyboardInterrupt. This provides a convenient way to halt the script during execution.
 - **Error Logging with Logging Module:** The script utilizes the logging module in Python to log error messages, information, and warnings. This provides structured and organized logging of errors and solutions.
 - **Level-Based Logging:** Different log levels are used for different types of messages:
