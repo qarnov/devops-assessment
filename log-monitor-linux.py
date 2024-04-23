@@ -1,7 +1,6 @@
 import subprocess
 import logging
 import time
-import sys
 from collections import defaultdict
 
 # Setup logging
@@ -39,16 +38,14 @@ def analyze_log_line(line):
 def monitor_log_file(log_file):
     global error_counts
 
-    # Command to execute 'Get-Content' (similar to tail -f) on the log file
-    powershell_command = [
-        "powershell.exe",
-        "-Command",
-        f"Get-Content -Wait -Tail 0 '{log_file}'"
-    ]
+    # Command to execute 'tail -f' on the log file
+    tail_command = ["tail", "-f", log_file]
+
+    start_time = time.time()
 
     try:
-        # Open a subprocess to execute the PowerShell command
-        with subprocess.Popen(powershell_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True) as process:
+        # Open a subprocess to execute the 'tail -f' command
+        with subprocess.Popen(tail_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True) as process:
             # Read the output of the command line by line
             for line in process.stdout:
                 # Process each line as needed
@@ -60,6 +57,11 @@ def monitor_log_file(log_file):
                 logger.info("\nNumber of times each error has occurred:")
                 for error_type, count in error_counts.items():
                     logger.info(f"{error_type}: {count}")
+
+                # Check for timeout every 30 minutes = 1800 seconds
+                if time.time() - start_time >= 1800:
+                    logger.warning("No new error found after the last scan. Hence stopped the script.")
+                    break  # Stop monitoring after 30 minutes = 1800 seconds
 
     except KeyboardInterrupt:
         logger.info("\nMonitoring stopped by user.")
