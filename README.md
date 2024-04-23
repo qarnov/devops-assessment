@@ -41,3 +41,29 @@ ERROR level for reporting errors such as the log file not being found.
 - **Standardized Output:** By using logging, the script can output log messages in a standardized format, which includes a timestamp, log level, and the actual log message. This makes it easier to read and understand the log messages.
 - **Flexibility:** The logging module provides flexibility in where the logs are sent. In this script, the logs are sent to the console, but it can be configured to log to files, email, or other destinations without changing the script logic.
 - **Debugging and Maintenance:** Implementing logging helps in debugging the script and maintaining it in the long run. It provides a clear record of what the script is doing, what errors it encounters, and how it responds to different situations.
+
+# Additonal Features
+
+- **Automated Timeout:** The script includes a timeout mechanism that automatically stops the monitoring if there is no activity for 30 seconds. This prevents unnecessary resource consumption.
+- **Manual Interruption:** Users can manually stop the script by pressing Ctrl+C, which raises a KeyboardInterrupt. This provides a convenient way to halt the script during execution.
+- **Error Logging with Logging Module:** The script utilizes the logging module in Python to log error messages, information, and warnings. This provides structured and organized logging of errors and solutions.
+- **Level-Based Logging:** Different log levels are used for different types of messages:
+  - **INFO level:** General information messages.
+  - **WARNING level:** Warnings about no new log entries or script termination.
+  - **ERROR level:** Reporting errors such as the log file not being found.
+- **Standardized Output:** By using the logging module, the script outputs log messages in a standardized format, including a timestamp, log level, and the actual log message. This improves readability and understanding of the logs.
+- **Error Counting:** The script counts the occurrences of each error type, such as "elementor," "403," "fatal error," "wp-settings," and "wp-content/themes." Users can identify patterns in their website's issues based on these counts.
+- **Providing Solutions:** For each detected error type, the script provides a possible solution. For example:
+  - "Possible Solution: Check the wp-content/plugins/elementor/includes/settings and then check its 76th line and comment it"
+  - "Possible Solution: Rename .htaccess"
+  - "Possible Solution: Check your WordPress plugins. Try disabling them one by one to check which causes problems."
+  - "Possible Solution: Try upgrading/downgrading your PHP version."
+  - "Possible Solution: Try changing the theme to the default one and check."
+- **Tail-like Functionality (Linux):** A separate script named "log-monitor-linux.py" has been optimized for Linux systems. This script uses the tail command similar to the Unix command-line tool to display the last part of a file.
+
+
+## Future possible features
+-Implement an email notification system to alert the user/administrator when specific errors occur or when certain thresholds are reached. Since we already included logging module, this implementation is alerady half done.
+-Machine Learning for Anomaly Detection: Utilize machine learning algorithms to detect anomalies in log data. This could help identify unusual patterns or outliers that may indicate potential issues.
+-Customizable Reporting: Allow users to generate customized reports based on selected time ranges, error types, or other criteria. Reports could be exported in various formats such as PDF or CSV.
+
