@@ -27,9 +27,9 @@ I have included 4 of the most common wordpress issues me and my team used to get
 3. **403 Error:** Rename your `.htaccess` file.
 4. **elementor:** Look into `public_html/wp-content/plugins/elementor/includes/settings` on the 76th line.
 5. **wp-content/themes:** Try changing the theme to the default one and check.
-So when the script summarises the issue, it wil prompt the user to do the following.
 
-The script also counts the occurrences of each error type, allowing users to identify patterns in their website's issues.
+
+So when the script summarises the issue, it wil prompt the user to do the following.The script also counts the occurrences of each error type, allowing users to identify patterns in their website's issues.
 
 ## Logging Module
 The `logging` module in Python was used for the following reasons:
