@@ -17,7 +17,7 @@ To use this project, follow these steps:
 The script continuously monitors the log file and provides insights into common WordPress errors. It also includes a mechanism to stop the monitoring loop:
 - **Automated Timeout:** If there is no activity for 30 seconds, the script will automatically stop. This prevents misuse of computing power.
 - **Manual Interruption:** Pressing `Ctrl+C` will raise a `KeyboardInterrupt` and stop the script. This is useful for manually stopping the script during long-running operations.
-In the provided code, I did not use the tail module of Python. The tail module is not a built-in Python module; it's a common Unix command-line tool used to display the last part of a file.
+- **Using tail module:**In the provided code, I did not use the tail module of Python. The tail module is not a built-in Python module; it's a common Unix command-line tool used to display the last part of a file.
 In the script, we manually implemented a similar functionality by opening the log file and continuously reading new lines from the end of the file (file.seek(0, os.SEEK_END)) as new entries are appended. This way, we mimic the behavior of tail in a Python script without actually using the tail module.
 But since I had a doubt about the requirments mentioned in the assessment "Use tail or similar commands to track and display new log entries in real time."
 I decided I will use tail in another code file optimized for linux systems . So I have used tail too but stored it in another file named "log-monitor-linux.py"
